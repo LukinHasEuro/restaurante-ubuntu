@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ubuntu - Culinária Africana</title>
+    <title>Ubuntu - Culinária Africana Autêntica</title>
     <style>
         * {
             margin: 0;
@@ -34,6 +34,26 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
             text-align: center;
             border: 3px solid #d4af37;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
         }
 
         .ubuntu-logo {
@@ -321,14 +341,17 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <div class="ubuntu-logo">🌍 UBUNTU</div>
-            <p class="tagline">Culinária Africana Autêntica & Moderna</p>
-            <p class="mission-text">
-                Valorizamos a rica cultura africana através de sua gastronomia excepcional, 
-                conectando tradições milenares com um ambiente moderno e aconchegante. 
-                Ingredientes frescos direto das fazendas africanas para sua mesa.
-            </p>
+        <header id="mainHeader">
+            <div class="header-background" id="headerBackground"></div>
+            <div class="header-content">
+                <div class="ubuntu-logo">🌍 UBUNTU</div>
+                <p class="tagline">Culinária Africana Autêntica & Moderna</p>
+                <p class="mission-text">
+                    Valorizamos a rica cultura africana através de sua gastronomia excepcional, 
+                    conectando tradições milenares com um ambiente moderno e aconchegante. 
+                    Ingredientes frescos direto das fazendas africanas para sua mesa.
+                </p>
+            </div>
         </header>
 
         <div class="search-filter">
@@ -336,11 +359,7 @@
                 <input type="text" class="search-box" id="searchInput" placeholder="🔍 Buscar pratos africanos...">
                 <select class="category-filter" id="categoryFilter">
                     <option value="">Todas as categorias</option>
-                    <option value="diario">Refeições Diárias</option>
-                    <option value="especial">...</option>
-                    <option value="bebidas">...</option>
-                    <option value="sobremesas">...</option>
-                    <option value="entradas">...</option> 
+                    <option value="pratos">Pratos Africanos</option>
                 </select>
             </div>
         </div>
@@ -364,117 +383,49 @@
     </div>
 
     <script>
-        // Cardápio Ubuntu - Culinária Africana
+        // Configuração da imagem de fundo do header
+        const HEADER_BACKGROUND_IMAGE = ""; // Cole aqui a URL da imagem de fundo
+        
+        // Aplicar imagem de fundo se fornecida
+        if (HEADER_BACKGROUND_IMAGE) {
+            const headerBg = document.getElementById('headerBackground');
+            headerBg.style.backgroundImage = `url('${HEADER_BACKGROUND_IMAGE}')`;
+        }
+
+        // Cardápio Ubuntu - Culinária Africana (Produtos Placeholder)
         const dishes = [
             {
                 id: 1,
-                title: "[...]",
-                category: "diario",
-                description: "[...]",
-                origin: "[...]",
-                price: 0.99,
+                title: "[Nome do Prato]",
+                category: "pratos",
+                description: "[Descrição do prato tradicional africano com ingredientes e modo de preparo]",
+                origin: "[País/Região] - [Fazenda/Localização]",
+                price: 0.00,
                 originalPrice: null,
-                image: "🍚",
+                image: "🍽️",
                 special: null
             },
             {
                 id: 2,
-                title: "[...]",
-                category: "especial",
-                description: "[...]",
-                origin: "[...]",
-                price: 0.99,
-                originalPrice: 0.99,
-                image: "🍖",
-                special: "Chef's Choice"
+                title: "[Nome do Prato]",
+                category: "pratos",
+                description: "[Descrição do prato tradicional africano com ingredientes e modo de preparo]",
+                origin: "[País/Região] - [Fazenda/Localização]",
+                price: 0.00,
+                originalPrice: 0.00,
+                image: "🍽️",
+                special: "[Badge Especial]"
             },
             {
                 id: 3,
-                title: "[...]",
-                category: "especial",
-                description: "[...]",
-                origin: "[...]",
-                price: 0.99,
+                title: "[Nome do Prato]",
+                category: "pratos",
+                description: "[Descrição do prato tradicional africano com ingredientes e modo de preparo]",
+                origin: "[País/Região] - [Fazenda/Localização]",
+                price: 0.00,
                 originalPrice: null,
-                image: "🍞",
-                special: "Tradicional"
-            },
-            {
-                id: 4,
-                title: "[...]",
-                category: "bebidas",
-                description: "[...]",
-                origin: "[...]",
-                price: 0.99,
-                originalPrice: 0.99,
-                image: "🥤",
+                image: "🍽️",
                 special: null
-            },
-            {
-                id: 5,
-                title: "[...]",
-                category: "especial",
-                description: "[...]",
-                origin: "[...]",
-                price: 0.99,
-                originalPrice: 0.99,
-                image: "🍲",
-                special: "Premium"
-            },
-            {
-                id: 6,
-                title: "[...]",
-                category: "diario",
-                description: "[...]",
-                origin: "[...]",
-                price: 0.99,
-                originalPrice: null,
-                image: "🥣",
-                special: null
-            },
-            {
-                id: 7,
-                title: "[...]",
-                category: "entradas",
-                description: "[...]",
-                origin: "[...]",
-                price: 0.99,
-                originalPrice: null,
-                image: "🥓",
-                special: null
-            },
-            {
-                id: 8,
-                title: "[...]",
-                category: "sobremesas",
-                description: "[...]",
-                origin: "[...]",
-                price: 0.99,
-                originalPrice: 0.99,
-                image: "🍮",
-                special: null
-            },
-            {
-                id: 9,
-                title: "[...]",
-                category: "diario",
-                description: "[...]",
-                origin: "[...]",
-                price: 0.99,
-                originalPrice: null,
-                image: "🍜",
-                special: null
-            },
-            {
-                id: 10,
-                title: "[...]",
-                category: "bebidas",
-                description: "[...]",
-                origin: "[...]",
-                price: 0.99,
-                originalPrice: null,
-                image: "",
-                special: "Ritual"
             }
         ];
 
@@ -514,11 +465,7 @@
 
         function getCategoryName(category) {
             const categories = {
-                'diario': 'Refeições Diárias',
-                'especial': 'Ocasiões Especiais',
-                'bebidas': 'Bebidas Tradicionais',
-                'sobremesas': 'Sobremesas',
-                'entradas': 'Entradas'
+                'pratos': 'Pratos Africanos'
             };
             return categories[category] || category;
         }
