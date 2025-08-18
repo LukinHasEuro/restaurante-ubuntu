@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubuntu - Culinária Africana</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #d4af37 0%, #8b4513 50%, #2d4a22 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            border: 3px solid #d4af37;
+        }
+
+        .ubuntu-logo {
+            font-size: 3em;
+            font-weight: bold;
+            color: #8b4513;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .tagline {
+            color: #2d4a22;
+            font-size: 1.3em;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .mission-text {
+            color: #666;
+            font-size: 1em;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .search-filter {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            border: 2px solid #d4af37;
+        }
+
+        .search-container {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            padding: 12px 20px;
+            border: 2px solid #d4af37;
+            border-radius: 25px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: #8b4513;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+        }
+
+        .category-filter {
+            padding: 12px 20px;
+            border: 2px solid #d4af37;
+            border-radius: 25px;
+            font-size: 16px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .category-filter:focus {
+            outline: none;
+            border-color: #8b4513;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            position: relative;
+            border: 2px solid #d4af37;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+            border-color: #8b4513;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(45deg, #f5f5dc, #daa520);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            color: #8b4513;
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .product-image.has-url {
+            font-size: 0;
+        }
+
+        .product-image-emoji {
+            z-index: 1;
+        }
+
+        .product-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212,175,55,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .product-card:hover .product-image::before {
+            left: 100%;
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #2d4a22;
+        }
+
+        .product-category {
+            color: #d4af37;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .product-description {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .product-origin {
+            color: #8b4513;
+            font-size: 0.9em;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .product-price {
+            font-size: 1.6em;
+            font-weight: bold;
+            color: #2d4a22;
+            margin-bottom: 15px;
+        }
+
+        .product-original-price {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 0.9em;
+            margin-right: 10px;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            flex: 1;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #d4af37, #8b4513);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #8b4513;
+            border: 2px solid #8b4513;
+        }
+
+        .btn-secondary:hover {
+            background: #8b4513;
+            color: white;
+        }
+
+        .special-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #d4af37;
+            color: #2d4a22;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .no-products {
+            text-align: center;
+            color: white;
+            font-size: 1.3em;
+            margin: 50px 0;
+            background: rgba(0,0,0,0.3);
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .impact-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 40px;
+            text-align: center;
+            border: 2px solid #d4af37;
+        }
+
+        .impact-title {
+            color: #2d4a22;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .impact-text {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .search-container {
+                flex-direction: column;
+            }
+            
+            .search-box, .category-filter {
+                width: 100%;
+            }
+            
+            .ubuntu-logo {
+                font-size: 2.5em;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="ubuntu-logo">🌍 UBUNTU</div>
+            <p class="tagline">Culinária Africana Autêntica & Moderna</p>
+            <p class="mission-text">
+                Valorizamos a rica cultura africana através de sua gastronomia excepcional, 
+                conectando tradições milenares com um ambiente moderno e aconchegante. 
+                Ingredientes frescos direto das fazendas africanas para sua mesa.
+            </p>
+        </header>
+
+        <div class="search-filter">
+            <div class="search-container">
+                <input type="text" class="search-box" id="searchInput" placeholder="🔍 Buscar pratos africanos...">
+                <select class="category-filter" id="categoryFilter">
+                    <option value="">Todas as categorias</option>
+                    <option value="diario">Refeições Diárias</option>
+                    <option value="especial">...</option>
+                    <option value="bebidas">...</option>
+                    <option value="sobremesas">...</option>
+                    <option value="entradas">...</option> 
+                </select>
+            </div>
+        </div>
+
+        <div class="products-grid" id="productsGrid">
+            <!-- Os pratos serão gerados aqui pelo JavaScript -->
+        </div>
+
+        <div class="no-products" id="noProducts" style="display: none;">
+            Nenhum prato encontrado. Experimente uma busca diferente para descobrir sabores únicos da África.
+        </div>
+
+        <div class="impact-section">
+            <h2 class="impact-title">🤝 Nosso Impacto Social</h2>
+            <p class="impact-text">
+                Cada prato que você escolhe ajuda pequenos fazendeiros africanos e suas comunidades. 
+                Parte de nossos lucros é doada para ONGs que fornecem apoio alimentar e acesso à água potável em toda a África. 
+                Juntos, estamos construindo um futuro melhor através da gastronomia.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Cardápio Ubuntu - Culinária Africana
+        const dishes = [
+            {
+                id: 1,
+                title: "[...]",
+                category: "diario",
+                description: "[...]",
+                origin: "[...]",
+                price: 0.99,
+                originalPrice: null,
+                image: "🍚",
+                special: null
+            },
+            {
+                id: 2,
+                title: "[...]",
+                category: "especial",
+                description: "[...]",
+                origin: "[...]",
+                price: 0.99,
+                originalPrice: 0.99,
+                image: "🍖",
+                special: "Chef's Choice"
+            },
+            {
+                id: 3,
+                title: "[...]",
+                category: "especial",
+                description: "[...]",
+                origin: "[...]",
+                price: 0.99,
+                originalPrice: null,
+                image: "🍞",
+                special: "Tradicional"
+            },
+            {
+                id: 4,
+                title: "[...]",
+                category: "bebidas",
+                description: "[...]",
+                origin: "[...]",
+                price: 0.99,
+                originalPrice: 0.99,
+                image: "🥤",
+                special: null
+            },
+            {
+                id: 5,
+                title: "[...]",
+                category: "especial",
+                description: "[...]",
+                origin: "[...]",
+                price: 0.99,
+                originalPrice: 0.99,
+                image: "🍲",
+                special: "Premium"
+            },
+            {
+                id: 6,
+                title: "[...]",
+                category: "diario",
+                description: "[...]",
+                origin: "[...]",
+                price: 0.99,
+                originalPrice: null,
+                image: "🥣",
+                special: null
+            },
+            {
+                id: 7,
+                title: "[...]",
+                category: "entradas",
+                description: "[...]",
+                origin: "[...]",
+                price: 0.99,
+                originalPrice: null,
+                image: "🥓",
+                special: null
+            },
+            {
+                id: 8,
+                title: "[...]",
+                category: "sobremesas",
+                description: "[...]",
+                origin: "[...]",
+                price: 0.99,
+                originalPrice: 0.99,
+                image: "🍮",
+                special: null
+            },
+            {
+                id: 9,
+                title: "[...]",
+                category: "diario",
+                description: "[...]",
+                origin: "[...]",
+                price: 0.99,
+                originalPrice: null,
+                image: "🍜",
+                special: null
+            },
+            {
+                id: 10,
+                title: "[...]",
+                category: "bebidas",
+                description: "[...]",
+                origin: "[...]",
+                price: 0.99,
+                originalPrice: null,
+                image: "",
+                special: "Ritual"
+            }
+        ];
+
+        let filteredDishes = [...dishes];
+
+        function formatPrice(price) {
+            return `R$ ${price.toFixed(2).replace('.', ',')}`;
+        }
+
+        function createDishCard(dish) {
+            const isImageUrl = dish.image.startsWith('http') || dish.image.startsWith('https');
+            const imageStyle = isImageUrl ? `style="background-image: url('${dish.image}')"` : '';
+            const imageClass = isImageUrl ? 'product-image has-url' : 'product-image';
+            
+            return `
+                <div class="product-card">
+                    ${dish.special ? `<div class="special-badge">${dish.special}</div>` : ''}
+                    <div class="${imageClass}" ${imageStyle}>
+                        ${!isImageUrl ? `<span class="product-image-emoji">${dish.image}</span>` : ''}
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">${getCategoryName(dish.category)}</div>
+                        <div class="product-title">${dish.title}</div>
+                        <div class="product-description">${dish.description}</div>
+                        <div class="product-origin">📍 ${dish.origin}</div>
+                        <div class="product-price">
+                            ${dish.originalPrice ? `<span class="product-original-price">${formatPrice(dish.originalPrice)}</span>` : ''}
+                            ${formatPrice(dish.price)}
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="orderDish(${dish.id})" style="width: 100%;">🍽️ Pedir Agora</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function getCategoryName(category) {
+            const categories = {
+                'diario': 'Refeições Diárias',
+                'especial': 'Ocasiões Especiais',
+                'bebidas': 'Bebidas Tradicionais',
+                'sobremesas': 'Sobremesas',
+                'entradas': 'Entradas'
+            };
+            return categories[category] || category;
+        }
+
+        function renderDishes() {
+            const productsGrid = document.getElementById('productsGrid');
+            const noProducts = document.getElementById('noProducts');
+            
+            if (filteredDishes.length === 0) {
+                productsGrid.innerHTML = '';
+                noProducts.style.display = 'block';
+            } else {
+                productsGrid.innerHTML = filteredDishes.map(createDishCard).join('');
+                noProducts.style.display = 'none';
+            }
+        }
+
+        function filterDishes() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const category = document.getElementById('categoryFilter').value;
+
+            filteredDishes = dishes.filter(dish => {
+                const matchesSearch = dish.title.toLowerCase().includes(searchTerm) || 
+                                    dish.description.toLowerCase().includes(searchTerm) ||
+                                    dish.origin.toLowerCase().includes(searchTerm);
+                const matchesCategory = category === '' || dish.category === category;
+                
+                return matchesSearch && matchesCategory;
+            });
+
+            renderDishes();
+        }
+
+        function orderDish(dishId) {
+            const dish = dishes.find(d => d.id === dishId);
+            alert(`🍽️ "${dish.title}" foi adicionado ao seu pedido!\n\nAjudando fazendeiros em: ${dish.origin}\nPreço: ${formatPrice(dish.price)}`);
+        }
+
+        // Event listeners
+        document.getElementById('searchInput').addEventListener('input', filterDishes);
+        document.getElementById('categoryFilter').addEventListener('change', filterDishes);
+
+        // Renderizar pratos iniciais
+        renderDishes();
+
+        // Adicionar animações de entrada
+        window.addEventListener('load', () => {
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>
