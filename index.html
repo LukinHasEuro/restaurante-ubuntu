@@ -94,6 +94,250 @@
             gap: 15px;
             flex-wrap: wrap;
             align-items: center;
+            justify-content: space-between;
+        }
+
+        .search-left {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+            flex: 1;
+        }
+
+        .cart-button {
+            background: linear-gradient(45deg, #d4af37, #8b4513);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .cart-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: white;
+            margin: 2% auto;
+            padding: 0;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            background: linear-gradient(45deg, #d4af37, #8b4513);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        .close-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .close-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border: 2px solid #f0f0f0;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            background: #fafafa;
+        }
+
+        .cart-item-image {
+            font-size: 2em;
+            margin-right: 15px;
+            width: 60px;
+            text-align: center;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-title {
+            font-weight: bold;
+            color: #2d4a22;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-origin {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            color: #d4af37;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: white;
+            border-radius: 20px;
+            padding: 5px;
+            border: 2px solid #d4af37;
+        }
+
+        .quantity-btn {
+            background: #d4af37;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .quantity-display {
+            font-weight: bold;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .remove-item {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        .cart-summary {
+            background: linear-gradient(45deg, #f5f5dc, #daa520);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .summary-total {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2d4a22;
+            border-top: 2px solid #d4af37;
+            padding-top: 10px;
+        }
+
+        .checkout-button {
+            background: linear-gradient(45deg, #2d4a22, #4a7c59);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .checkout-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(45, 74, 34, 0.4);
+        }
+
+        .empty-cart {
+            text-align: center;
+            color: #666;
+            font-size: 1.1em;
+            padding: 40px;
+        }
+
+        .empty-cart-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
         }
 
         .search-box {
@@ -325,8 +569,18 @@
                 flex-direction: column;
             }
             
+            .search-left {
+                width: 100%;
+                justify-content: center;
+            }
+            
             .search-box, .category-filter {
                 width: 100%;
+            }
+            
+            .cart-button {
+                width: 100%;
+                justify-content: center;
             }
             
             .ubuntu-logo {
@@ -335,6 +589,21 @@
             
             .products-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 5% auto;
+            }
+
+            .cart-item {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .cart-item-actions {
+                justify-content: center;
             }
         }
     </style>
@@ -356,11 +625,17 @@
 
         <div class="search-filter">
             <div class="search-container">
-                <input type="text" class="search-box" id="searchInput" placeholder="🔍 Buscar pratos africanos...">
-                <select class="category-filter" id="categoryFilter">
-                    <option value="">Todas as categorias</option>
-                    <option value="pratos">Pratos Africanos</option>
-                </select>
+                <div class="search-left">
+                    <input type="text" class="search-box" id="searchInput" placeholder="🔍 Buscar pratos africanos...">
+                    <select class="category-filter" id="categoryFilter">
+                        <option value="">Todas as categorias</option>
+                        <option value="pratos">Pratos Africanos</option>
+                    </select>
+                </div>
+                <button class="cart-button" onclick="openCart()">
+                    🛒 Pedidos Pendentes
+                    <span class="cart-count" id="cartCount" style="display: none;">0</span>
+                </button>
             </div>
         </div>
 
@@ -380,6 +655,40 @@
                 Juntos, estamos construindo um futuro melhor através da gastronomia.
             </p>
         </div>
+
+        <!-- Modal do Carrinho -->
+        <div id="cartModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>🛒 Pedidos Pendentes</h2>
+                    <button class="close-button" onclick="closeCart()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="cartItems">
+                        <!-- Itens do carrinho serão inseridos aqui -->
+                    </div>
+                    <div id="cartSummary" style="display: none;">
+                        <div class="cart-summary">
+                            <div class="summary-row">
+                                <span>Subtotal:</span>
+                                <span id="subtotal">R$ 0,00</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Taxa de entrega:</span>
+                                <span id="deliveryFee">R$ 8,90</span>
+                            </div>
+                            <div class="summary-row summary-total">
+                                <span>Total:</span>
+                                <span id="total">R$ 0,00</span>
+                            </div>
+                            <button class="checkout-button" onclick="proceedToCheckout()">
+                                ✨ Finalizar Pedido
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -392,32 +701,54 @@
             headerBg.style.backgroundImage = `url('${HEADER_BACKGROUND_IMAGE}')`;
         }
 
-        // Cardápio Ubuntu - Culinária Africana (Produtos Placeholder)
+        // Cardápio Ubuntu - Culinária Africana 
         const dishes = [
             {
                 id: 1,
-                title: "[Nome do Prato]",
+                title: "Cuscuz com Carne Seca e Queijo Coalho",
                 category: "pratos",
-                description: "[Descrição do prato tradicional africano com ingredientes e modo de preparo]",
-                origin: "[País/Região] - [Fazenda/Localização]",
-                price: 0.00,
+                description: "Tradicional cuscuz africano preparado com carne seca desfiada e queijo coalho artesanal, temperado com especiarias autênticas da região do Sahel.",
+                origin: "Mali/Senegal - Fazendas do Sahel",
+                price: 45.90,
                 originalPrice: null,
-                image: "🍽️",
-                special: null
+                image: "🍚",
+                special: "Tradicional"
             },
             {
                 id: 2,
-                title: "[Nome do Prato]",
-                category: "pratos",
-                description: "[Descrição do prato tradicional africano com ingredientes e modo de preparo]",
-                origin: "[País/Região] - [Fazenda/Localização]",
-                price: 0.00,
-                originalPrice: 0.00,
-                image: "🍽️",
-                special: "[Badge Especial]"
+                title: "Pudim Malva",
+                category: "sobremesas",
+                description: "Clássico pudim sul-africano de textura úmida e sabor caramelizado, servido quente com molho cremoso de baunilha e canela.",
+                origin: "África do Sul - Tradição Familiar",
+                price: 28.90,
+                originalPrice: 35.90,
+                image: "🍮",
+                special: null
             },
             {
                 id: 3,
+                title: "Puff Puff",
+                category: "sobremesas",
+                description: "Bolinhos dourados e fofos da África Ocidental, levemente doces e polvilhados com açúcar de coco. Perfeitos para compartilhar.",
+                origin: "Nigéria - Fazendas do Lagos",
+                price: 22.90,
+                originalPrice: null,
+                image: "🍩",
+                special: "Popular"
+            },
+            {
+                id: 4,
+                title: "Sobolo (Hibisco Gelado)",
+                category: "bebidas",
+                description: "Refrescante bebida de hibisco com gengibre, hortelã e limão. Rica em antioxidantes e com o sabor autêntico do Gana.",
+                origin: "Gana - Plantações de Ashanti",
+                price: 16.90,
+                originalPrice: 19.90,
+                image: "🥤",
+                special: "Refrescante"
+            },
+            {
+                id: 5,
                 title: "[Nome do Prato]",
                 category: "pratos",
                 description: "[Descrição do prato tradicional africano com ingredientes e modo de preparo]",
@@ -426,6 +757,17 @@
                 originalPrice: null,
                 image: "🍽️",
                 special: null
+            },
+            {
+                id: 6,
+                title: "[Nome da Sobremesa]",
+                category: "sobremesas",
+                description: "[Descrição da sobremesa tradicional africana]",
+                origin: "[País/Região] - [Fazenda/Localização]",
+                price: 0.00,
+                originalPrice: 0.00,
+                image: "🧁",
+                special: "[Badge Especial]"
             }
         ];
 
@@ -465,7 +807,9 @@
 
         function getCategoryName(category) {
             const categories = {
-                'pratos': 'Pratos Africanos'
+                'pratos': 'Pratos Principais',
+                'sobremesas': 'Sobremesas',
+                'bebidas': 'Bebidas'
             };
             return categories[category] || category;
         }
@@ -499,9 +843,167 @@
             renderDishes();
         }
 
-        function orderDish(dishId) {
+        // Sistema de carrinho
+        let cart = [];
+
+        function updateCartCount() {
+            const cartCount = document.getElementById('cartCount');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            
+            if (totalItems > 0) {
+                cartCount.textContent = totalItems;
+                cartCount.style.display = 'flex';
+            } else {
+                cartCount.style.display = 'none';
+            }
+        }
+
+        function addToCart(dishId) {
             const dish = dishes.find(d => d.id === dishId);
-            alert(`🍽️ "${dish.title}" foi adicionado ao seu pedido!\n\nAjudando fazendeiros em: ${dish.origin}\nPreço: ${formatPrice(dish.price)}`);
+            const existingItem = cart.find(item => item.id === dishId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: dish.id,
+                    title: dish.title,
+                    price: dish.price,
+                    origin: dish.origin,
+                    image: dish.image,
+                    quantity: 1
+                });
+            }
+            
+            updateCartCount();
+            
+            // Feedback visual
+            const button = event.target;
+            const originalText = button.textContent;
+            button.textContent = '✅ Adicionado!';
+            button.style.background = '#4CAF50';
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.background = '';
+            }, 1000);
+        }
+
+        function removeFromCart(dishId) {
+            cart = cart.filter(item => item.id !== dishId);
+            updateCartCount();
+            renderCart();
+        }
+
+        function updateQuantity(dishId, change) {
+            const item = cart.find(item => item.id === dishId);
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    removeFromCart(dishId);
+                } else {
+                    updateCartCount();
+                    renderCart();
+                }
+            }
+        }
+
+        function openCart() {
+            document.getElementById('cartModal').style.display = 'block';
+            renderCart();
+        }
+
+        function closeCart() {
+            document.getElementById('cartModal').style.display = 'none';
+        }
+
+        function renderCart() {
+            const cartItems = document.getElementById('cartItems');
+            const cartSummary = document.getElementById('cartSummary');
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="empty-cart">
+                        <div class="empty-cart-icon">🍽️</div>
+                        <h3>Seu carrinho está vazio</h3>
+                        <p>Adicione alguns pratos deliciosos da culinária africana!</p>
+                    </div>
+                `;
+                cartSummary.style.display = 'none';
+                return;
+            }
+            
+            cartItems.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <div class="cart-item-image">${item.image}</div>
+                    <div class="cart-item-info">
+                        <div class="cart-item-title">${item.title}</div>
+                        <div class="cart-item-origin">📍 ${item.origin}</div>
+                        <div class="cart-item-price">${formatPrice(item.price)}</div>
+                    </div>
+                    <div class="cart-item-actions">
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)">−</button>
+                            <span class="quantity-display">${item.quantity}</span>
+                            <button class="quantity-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+                        </div>
+                        <button class="remove-item" onclick="removeFromCart(${item.id})">🗑️ Remover</button>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Calcular totais
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const deliveryFee = subtotal > 50 ? 0 : 8.90;
+            const total = subtotal + deliveryFee;
+            
+            document.getElementById('subtotal').textContent = formatPrice(subtotal);
+            document.getElementById('deliveryFee').textContent = deliveryFee === 0 ? 'GRÁTIS' : formatPrice(deliveryFee);
+            document.getElementById('total').textContent = formatPrice(total);
+            
+            cartSummary.style.display = 'block';
+        }
+
+        function proceedToCheckout() {
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const deliveryFee = total > 50 ? 0 : 8.90;
+            const finalTotal = total + deliveryFee;
+            
+            let orderSummary = "🌍 PEDIDO UBUNTU RESTAURANT\n";
+            orderSummary += "=" .repeat(30) + "\n\n";
+            
+            cart.forEach(item => {
+                orderSummary += `${item.quantity}x ${item.title}\n`;
+                orderSummary += `   ${formatPrice(item.price)} cada\n`;
+                orderSummary += `   Subtotal: ${formatPrice(item.price * item.quantity)}\n`;
+                orderSummary += `   Origem: ${item.origin}\n\n`;
+            });
+            
+            orderSummary += "=" .repeat(30) + "\n";
+            orderSummary += `Subtotal: ${formatPrice(total)}\n`;
+            orderSummary += `Taxa entrega: ${deliveryFee === 0 ? 'GRÁTIS' : formatPrice(deliveryFee)}\n`;
+            orderSummary += `TOTAL: ${formatPrice(finalTotal)}\n\n`;
+            orderSummary += "🤝 Obrigado por apoiar fazendeiros africanos!\n";
+            orderSummary += "Seu pedido ajuda comunidades rurais da África.";
+            
+            alert(orderSummary);
+            
+            // Simular finalização
+            cart = [];
+            updateCartCount();
+            closeCart();
+        }
+
+        // Fechar modal clicando fora dele
+        window.onclick = function(event) {
+            const modal = document.getElementById('cartModal');
+            if (event.target === modal) {
+                closeCart();
+            }
+        }
+
+        function orderDish(dishId) {
+            addToCart(dishId);
         }
 
         // Event listeners
