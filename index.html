@@ -702,72 +702,273 @@
         }
 
         // Cardápio Ubuntu - Culinária Africana 
+        // Cardápio Ubuntu - Culinária Africana 
         const dishes = [
+            // ENTRADAS
             {
                 id: 1,
-                title: "Cuscuz com Carne Seca e Queijo Coalho",
+                title: "Pops de Mandioca",
+                category: "entradas",
+                description: "Cubos de mandioca dourados e crocantes, temperados com especiarias africanas. Uma explosão de sabor e textura única.",
+                origin: "Moçambique - Fazendas de Maputo",
+                price: 18.90,
+                originalPrice: null,
+                image: "🥔",
+                special: "Crocante"
+            },
+            {
+                id: 2,
+                title: "Mini Falafel",
+                category: "entradas",
+                description: "Bolinhos fritos de grão de bico temperados com coentro, cominho e pimenta. Servidos com molho tahine.",
+                origin: "Egito - Vale do Nilo",
+                price: 24.90,
+                originalPrice: null,
+                image: "🧆",
+                special: "Tradicional"
+            },
+            {
+                id: 3,
+                title: "Bunny Chow",
+                category: "entradas",
+                description: "Pão recheado com curry aromático feito com molho de carne apimentado, uma especialidade sul-africana.",
+                origin: "África do Sul - Durban",
+                price: 32.90,
+                originalPrice: null,
+                image: "🍞",
+                special: "Picante"
+            },
+
+            // PRATOS PRINCIPAIS
+            {
+                id: 4,
+                title: "Couscous de Dandara",
                 category: "pratos",
-                description: "Tradicional cuscuz africano preparado com carne seca desfiada e queijo coalho artesanal, temperado com especiarias autênticas da região do Sahel.",
-                origin: "Mali/Senegal - Fazendas do Sahel",
-                price: 45.90,
+                description: "Couscous marroquino tradicional com carne refogada e vinagrete de vegetais frescos.",
+                origin: "Marrocos - Atlas Mountains",
+                price: 48.90,
                 originalPrice: null,
                 image: "🍚",
                 special: "Tradicional"
             },
             {
-                id: 2,
-                title: "Pudim Malva",
-                category: "sobremesas",
-                description: "Clássico pudim sul-africano de textura úmida e sabor caramelizado, servido quente com molho cremoso de baunilha e canela.",
-                origin: "África do Sul - Tradição Familiar",
-                price: 28.90,
-                originalPrice: 35.90,
-                image: "🍮",
+                id: 5,
+                title: "Cuscuz Raiz Negra",
+                category: "pratos",
+                description: "Cuscuz nordestino com carne seca desfiada e queijo coalho, uma fusão Brasil-África cheia de sabor.",
+                origin: "Brasil/África - Fusão Cultural",
+                price: 42.90,
+                originalPrice: null,
+                image: "🌽",
+                special: "Fusão"
+            },
+            {
+                id: 6,
+                title: "Efo Riro",
+                category: "pratos",
+                description: "Ensopado de legumes com espinafre, carne, peixe e temperos nigerianos. Rico em nutrientes e sabor.",
+                origin: "Nigéria - Lagos",
+                price: 44.90,
+                originalPrice: null,
+                image: "🥬",
+                special: "Nutritivo"
+            },
+            {
+                id: 7,
+                title: "Arroz Suya",
+                category: "pratos",
+                description: "Arroz aromático com molho picante e carne grelhada temperada com especiarias suya.",
+                origin: "Nigéria - Norte do País",
+                price: 38.90,
+                originalPrice: 45.90,
+                image: "🍛",
+                special: "Picante"
+            },
+
+            // PRATOS VEGETARIANOS
+            {
+                id: 8,
+                title: "Chakalaka",
+                category: "vegetarianos",
+                description: "Ensopado vibrante de feijão com curry vegetariano, tomates e pimentões. Prato colorido e saboroso.",
+                origin: "África do Sul - Johannesburg",
+                price: 36.90,
+                originalPrice: null,
+                image: "🫘",
+                special: "Vegano"
+            },
+            {
+                id: 9,
+                title: "Okra Sauce",
+                category: "vegetarianos",
+                description: "Fufu cremoso acompanhado de molho de quiabo tradicional, rico em sabores e texturas.",
+                origin: "Gana - Ashanti Region",
+                price: 34.90,
+                originalPrice: null,
+                image: "🥒",
+                special: "Cremoso"
+            },
+
+            // ACOMPANHAMENTOS
+            {
+                id: 10,
+                title: "Mandioca",
+                category: "acompanhamentos",
+                description: "Mandioca cozida na manteiga com ervas aromáticas, acompanhamento perfeito para qualquer prato.",
+                origin: "Angola - Luanda",
+                price: 16.90,
+                originalPrice: null,
+                image: "🍠",
                 special: null
             },
             {
-                id: 3,
+                id: 11,
+                title: "Djampa",
+                category: "acompanhamentos",
+                description: "Arroz de milho temperado com especiarias tradicionais, textura única e sabor marcante.",
+                origin: "Guiné-Bissau",
+                price: 18.90,
+                originalPrice: null,
+                image: "🌾",
+                special: null
+            },
+            {
+                id: 12,
+                title: "Legumes Salteados",
+                category: "acompanhamentos",
+                description: "Mix de legumes variados, assados e temperados com ervas africanas selecionadas.",
+                origin: "Cabo Verde - Santiago",
+                price: 22.90,
+                originalPrice: null,
+                image: "🥕",
+                special: "Saudável"
+            },
+
+            // SALADAS
+            {
+                id: 13,
+                title: "Caesar Salad",
+                category: "saladas",
+                description: "Salada de alface crocante com molho caesar especial e temperos africanos únicos.",
+                origin: "África do Sul - Cape Town",
+                price: 28.90,
+                originalPrice: null,
+                image: "🥗",
+                special: null
+            },
+            {
+                id: 14,
+                title: "Caprese",
+                category: "saladas",
+                description: "Salada fresca de tomates com mozzarella e manjericão, com toque de azeite de dendê.",
+                origin: "Moçambique - Maputo",
+                price: 32.90,
+                originalPrice: null,
+                image: "🍅",
+                special: "Fresca"
+            },
+            {
+                id: 15,
+                title: "Mechouia",
+                category: "saladas",
+                description: "Salada tunisiana de vegetais grelhados e apimentados, explosiva em sabores mediterrâneos-africanos.",
+                origin: "Tunísia - Sidi Bou Said",
+                price: 29.90,
+                originalPrice: null,
+                image: "🌶️",
+                special: "Picante"
+            },
+
+            // SOBREMESAS
+            {
+                id: 16,
                 title: "Puff Puff",
                 category: "sobremesas",
-                description: "Bolinhos dourados e fofos da África Ocidental, levemente doces e polvilhados com açúcar de coco. Perfeitos para compartilhar.",
-                origin: "Nigéria - Fazendas do Lagos",
+                description: "Bolinhos tradicionais de massa frita, dourados e fofos, polvilhados com açúcar e canela.",
+                origin: "Nigéria - Lagos",
                 price: 22.90,
                 originalPrice: null,
                 image: "🍩",
                 special: "Popular"
             },
             {
-                id: 4,
-                title: "Sobolo (Hibisco Gelado)",
-                category: "bebidas",
-                description: "Refrescante bebida de hibisco com gengibre, hortelã e limão. Rica em antioxidantes e com o sabor autêntico do Gana.",
-                origin: "Gana - Plantações de Ashanti",
-                price: 16.90,
-                originalPrice: 19.90,
-                image: "🥤",
-                special: "Refrescante"
+                id: 17,
+                title: "Mungunzá",
+                category: "sobremesas",
+                description: "Canjica doce cremosa com coco ralado, leite condensado e canela. Conforto em cada colherada.",
+                origin: "Brasil/Angola - Herança Ancestral",
+                price: 24.90,
+                originalPrice: null,
+                image: "🥥",
+                special: "Cremoso"
             },
             {
-                id: 5,
-                title: "[Nome do Prato]",
-                category: "pratos",
-                description: "[Descrição do prato tradicional africano com ingredientes e modo de preparo]",
-                origin: "[País/Região] - [Fazenda/Localização]",
-                price: 0.00,
-                originalPrice: null,
-                image: "🍽️",
+                id: 18,
+                title: "Cocada Cremosa",
+                category: "sobremesas",
+                description: "Cocada de coco fresco e cremosa, com textura sedosa e sabor tropical intenso.",
+                origin: "Cabo Verde - Sal",
+                price: 19.90,
+                originalPrice: 24.90,
+                image: "🧈",
                 special: null
             },
             {
-                id: 6,
-                title: "[Nome da Sobremesa]",
+                id: 19,
+                title: "Pudim Malva",
                 category: "sobremesas",
-                description: "[Descrição da sobremesa tradicional africana]",
-                origin: "[País/Região] - [Fazenda/Localização]",
-                price: 0.00,
-                originalPrice: 0.00,
-                image: "🧁",
-                special: "[Badge Especial]"
+                description: "Pudim tradicional sul-africano com geleia de damasco e caramelo, servido com molho cremoso.",
+                origin: "África do Sul - Cape Winelands",
+                price: 28.90,
+                originalPrice: 35.90,
+                image: "🍮",
+                special: "Tradicional"
+            },
+
+            // BEBIDAS
+            {
+                id: 20,
+                title: "Mazagran",
+                category: "bebidas",
+                description: "Bebida refrescante à base de café gelado, hortelã fresca e limão. Perfeita para dias quentes.",
+                origin: "Argélia - Sahara",
+                price: 16.90,
+                originalPrice: null,
+                image: "☕",
+                special: "Refrescante"
+            },
+            {
+                id: 21,
+                title: "Sobolo",
+                category: "bebidas",
+                description: "Suco natural de hibisco com especiarias aromáticas, rico em antioxidantes e sabor único.",
+                origin: "Gana - Northern Region",
+                price: 14.90,
+                originalPrice: 18.90,
+                image: "🥤",
+                special: "Antioxidante"
+            },
+            {
+                id: 22,
+                title: "Sucos Naturais",
+                category: "bebidas",
+                description: "Abacaxi, laranja ou morango frescos. Frutas selecionadas das melhores fazendas africanas.",
+                origin: "Costa do Marfim - Plantações",
+                price: 12.90,
+                originalPrice: null,
+                image: "🍊",
+                special: "Natural"
+            },
+            {
+                id: 23,
+                title: "Refrigerantes",
+                category: "bebidas",
+                description: "Coca Cola tradicional ou Guaraná Antártica gelados. Acompanhamentos clássicos para suas refeições.",
+                origin: "Internacional",
+                price: 8.90,
+                originalPrice: null,
+                image: "🥤",
+                special: null
             }
         ];
 
